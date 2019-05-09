@@ -1,5 +1,5 @@
 PODS:
-  - FantasticDisplay (0.1.0)
+  - FantasticDisplay (1.0.0)
 
 DEPENDENCIES:
   - FantasticDisplay (from `../../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  FantasticDisplay: f03ade58e890130dd4785e5829fe11d1fb5f2840
+  FantasticDisplay: 14959a3e1a36462988764d87e29e93e86d4244ca
 
 PODFILE CHECKSUM: be54bd449b7706931ecfbea75d7476ea7a636784
 
