@@ -2,10 +2,12 @@ import UIKit
 import FantasticDisplay
 
 class ViewController: UIViewController {
+    let imageView = UIImageView(image: UIImage(named: "wallpaper"))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        view.addSubview(imageView)
 
         let button = UIButton(type: .system)
         button.setTitle("HUD", for: .normal)
@@ -18,6 +20,12 @@ class ViewController: UIViewController {
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        imageView.frame = view.bounds
     }
 
     @objc func buttonTouched() {
