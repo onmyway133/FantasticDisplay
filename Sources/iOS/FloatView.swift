@@ -24,13 +24,7 @@ public class FloatView: UIView {
 
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(options.contentView)
-        options.contentView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            options.contentView.leftAnchor.constraint(equalTo: leftAnchor),
-            options.contentView.rightAnchor.constraint(equalTo: rightAnchor),
-            options.contentView.topAnchor.constraint(equalTo: topAnchor),
-            options.contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        options.contentView.pinEdges(view: self)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -59,8 +53,8 @@ public struct ConstrainFactory {
         NSLayoutConstraint.activate([
             view.centerXAnchor.constraint(equalTo: parentView.centerXAnchor),
             view.centerYAnchor.constraint(equalTo: parentView.centerYAnchor),
-            view.widthAnchor.constraint(equalToConstant: 100),
-            view.heightAnchor.constraint(equalToConstant: 100)
+            view.widthAnchor.constraint(equalToConstant: 150),
+            view.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
 }
@@ -68,5 +62,50 @@ public struct ConstrainFactory {
 public struct AnimatorFactory {
     public static let simple = { () -> UIViewPropertyAnimator in
         return UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut)
+    }
+}
+
+public class HUDContainer: UIVisualEffectView {
+    public init() {
+        super.init(effect: UIBlurEffect(style: .light))
+        setup()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+
+    func setup() {
+        layer.cornerRadius = 8
+        layer.masksToBounds = true
+
+        let view = UIView()
+        view.backgroundColor = .yellow
+        contentView.addSubview(view)
+        view.pinEdges(view: contentView)
+    }
+}
+
+public class ProgressView: UIView {
+
+}
+
+public class SuccessView: UIView {
+
+}
+
+public class ToastContainer: UIView {
+
+}
+
+extension UIView {
+    func pinEdges(view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            leftAnchor.constraint(equalTo: view.leftAnchor),
+            rightAnchor.constraint(equalTo: view.rightAnchor),
+            topAnchor.constraint(equalTo: view.topAnchor),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }

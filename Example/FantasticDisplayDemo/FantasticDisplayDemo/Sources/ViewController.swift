@@ -21,11 +21,10 @@ class ViewController: UIViewController {
     }
 
     @objc func buttonTouched() {
-        let contentView = UIView()
-        contentView.backgroundColor = .yellow
+        let hudContainer = HUDContainer()
 
         var options = Options()
-        options.contentView = contentView
+        options.contentView = hudContainer
 
         let floatView = FloatView(options: options)
         floatView.show(on: view)
