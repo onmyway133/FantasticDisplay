@@ -40,6 +40,13 @@ public class FloatView: UIView {
     public func show(on parentView: UIView) {
         parentView.addSubview(self)
         options.contrain(self, parentView)
+
+        let animator = options.animator()
+        animator.addAnimations {
+            self.layoutIfNeeded()
+        }
+
+        animator.startAnimation()
     }
 
     public func hide() {

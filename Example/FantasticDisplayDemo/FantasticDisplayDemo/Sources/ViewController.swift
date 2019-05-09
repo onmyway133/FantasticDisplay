@@ -29,6 +29,10 @@ class ViewController: UIViewController {
 
         let floatView = FloatView(options: options)
         floatView.show(on: view)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
+            floatView.hide()
+        })
     }
 }
 
