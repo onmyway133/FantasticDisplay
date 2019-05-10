@@ -29,53 +29,68 @@ public class HUDContainer: UIVisualEffectView {
 public class ProgressView: UIView {
     public var lineCount: Int = 10
     public var duration: TimeInterval = 1.0
-    public var lineSize: CGSize = CGSize(width: 6, height: 100)
+    public var lineSize: CGSize = CGSize(width: 6, height: 25)
     public var lineColor: UIColor = UIColor.white
-    private var replicatorLayer: CAReplicatorLayer?
 
-    public override func layoutSubviews() {
-        super.layoutSubviews()
+    public let replicatorLayer: CAReplicatorLayer
+    public let animation: CABasicAnimation
+    public let line: CALayer
 
-        guard replicatorLayer == nil else {
-            return
-        }
-
-        backgroundColor = .red
-
+    public override init(frame: CGRect) {
+        self.replicatorLayer = CAReplicatorLayer()
+        self.line = CALayer()
+        self.animation = CABasicAnimation(keyPath: "opacity")
+        super.init(frame: .zero)
         setup()
     }
 
-    func setup() {
-        let rect = self.bounds
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
 
-        let replicatorLayer = CAReplicatorLayer()
-        replicatorLayer.frame = bounds
+    func setup() {
         replicatorLayer.instanceCount = lineCount
 
         let angle = CGFloat.pi * 2 / CGFloat(lineCount)
         let rotation = CATransform3DMakeRotation(angle, 0, 0, 1.0)
         replicatorLayer.instanceTransform = rotation
 
-        let line = CALayer()
         line.backgroundColor = lineColor.cgColor
         line.frame.size = lineSize
         line.opacity = 0.0
         line.cornerRadius = lineSize.width / 2
-        line.position = CGPoint(x: rect.width/2, y: rect.height/2)
 
-        let fade = CABasicAnimation(keyPath: "opacity")
-        fade.fromValue = 1.0
-        fade.toValue = 0.0
-        fade.repeatCount = Float.greatestFiniteMagnitude
-        fade.timingFunction = CAMediaTimingFunction(name: .linear)
-        fade.duration = duration
-        line.add(fade, forKey: "ProgressView")
+        animation.fromValue = 1.0
+        animation.toValue = 0.0
+        animation.repeatCount = Float.greatestFiniteMagnitude
+        animation.timingFunction = CAMediaTimingFunction(name: .linear)
+        animation.duration = duration
+        line.add(animation, forKey: "ProgressView")
 
         replicatorLayer.addSublayer(line)
         replicatorLayer.instanceDelay = duration / TimeInterval(lineCount)
 
         layer.addSublayer(replicatorLayer)
-        self.replicatorLayer = replicatorLayer
+    }
+
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let rect = self.bounds
+
+        replicatorLayer.frame = bounds
+        line.position = CGPoint(x: rect.width/2, y: rect.height/2 * 30)
+    }
+
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
+
+        let key = "ProgressView"
+        if window != nil {
+            replicatorLayer.add(animation, forKey: key)
+        } else {
+            replicatorLayer.removeAnimation(forKey: key)
+        }
     }
 }
 
