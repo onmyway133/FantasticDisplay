@@ -31,11 +31,8 @@ public class HUDContainer: UIVisualEffectView {
         layer.cornerRadius = 8
         layer.masksToBounds = true
 
-        let view = UIView()
-        view.alpha = 0.8
-        view.backgroundColor = .yellow
-        contentView.addSubview(view)
-        view.pinEdges(view: contentView)
+        contentView.addSubview(options.contentView)
+        options.contentView.pinEdges(view: contentView)
     }
 }
 
@@ -43,6 +40,7 @@ public class ProgressView: UIView {
     public struct Options {
         public var lineCount: Int = 10
         public var wholeDuration: TimeInterval = 1.0
+        public var lineSize: CGSize = CGSize(width: 6, height: 20)
 
         public init() {}
     }
@@ -75,6 +73,7 @@ public class ProgressView: UIView {
 
         let line = CALayer()
         line.backgroundColor = UIColor.red.cgColor
+        line.frame.size = options.lineSize
 
         let angle = CGFloat.pi * 2 / CGFloat(options.lineCount)
         let rotation = CATransform3DMakeRotation(angle, 0, 0, 1.0)
@@ -92,6 +91,8 @@ public class ProgressView: UIView {
         replicatorLayer.instanceDelay = options.wholeDuration / TimeInterval(options.lineCount)
         replicatorLayer.add(fade, forKey: "ProgressView")
 
+        replicatorLayer.frame = bounds
+        layer.addSublayer(replicatorLayer)
         self.replicatorLayer = replicatorLayer
     }
 }
