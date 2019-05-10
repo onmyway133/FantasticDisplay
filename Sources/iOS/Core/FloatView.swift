@@ -38,7 +38,12 @@ public class FloatView: UIView {
     }
 
     public func hide() {
-        removeFromSuperview()
+        let animator = self.animator()
+        animator.addAnimations {
+            self.removeFromSuperview()
+        }
+
+        animator.startAnimation()
     }
 }
 

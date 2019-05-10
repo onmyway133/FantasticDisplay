@@ -22,6 +22,9 @@
 		D284B1481F7908BB00D94AF3 /* macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284B12E1F7906DA00D94AF3 /* macOSTests.swift */; };
 		D284B1491F790CA200D94AF3 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C629861C3A89A8007F7B7C /* Shared.swift */; };
 		D284B14A1F790CA200D94AF3 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C629861C3A89A8007F7B7C /* Shared.swift */; };
+		D29865D6228592A900E2C066 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29865D5228592A900E2C066 /* ProgressView.swift */; };
+		D29865DA228592C800E2C066 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29865D9228592C800E2C066 /* SuccessView.swift */; };
+		D29865DC228592CF00E2C066 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29865DB228592CF00E2C066 /* ErrorView.swift */; };
 		D2CE63A822846F6200024AD0 /* HUDContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE63A722846F6200024AD0 /* HUDContainer.swift */; };
 		D2CE63AA22846F6A00024AD0 /* ToastContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE63A922846F6A00024AD0 /* ToastContainer.swift */; };
 		D2CE63AC22846F7400024AD0 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE63AB22846F7400024AD0 /* Options.swift */; };
@@ -76,6 +79,9 @@
 		D284B1411F79081F00D94AF3 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		D284B1421F79081F00D94AF3 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		D284B1431F79081F00D94AF3 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
+		D29865D5228592A900E2C066 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		D29865D9228592C800E2C066 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		D29865DB228592CF00E2C066 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		D2CE63A722846F6200024AD0 /* HUDContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDContainer.swift; sourceTree = "<group>"; };
 		D2CE63A922846F6A00024AD0 /* ToastContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastContainer.swift; sourceTree = "<group>"; };
 		D2CE63AB22846F7400024AD0 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
@@ -218,6 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				D2CE63A722846F6200024AD0 /* HUDContainer.swift */,
+				D29865D5228592A900E2C066 /* ProgressView.swift */,
+				D29865D9228592C800E2C066 /* SuccessView.swift */,
+				D29865DB228592CF00E2C066 /* ErrorView.swift */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
@@ -627,7 +636,10 @@
 				D2CE63B222846FCB00024AD0 /* FloatView.swift in Sources */,
 				D2CE63A822846F6200024AD0 /* HUDContainer.swift in Sources */,
 				D2CE63AE22846F7A00024AD0 /* Factory.swift in Sources */,
+				D29865DA228592C800E2C066 /* SuccessView.swift in Sources */,
+				D29865DC228592CF00E2C066 /* ErrorView.swift in Sources */,
 				D5C629871C3A89A8007F7B7C /* Shared.swift in Sources */,
+				D29865D6228592A900E2C066 /* ProgressView.swift in Sources */,
 				D2CE63AC22846F7400024AD0 /* Options.swift in Sources */,
 				D2CE63AA22846F6A00024AD0 /* ToastContainer.swift in Sources */,
 			);
