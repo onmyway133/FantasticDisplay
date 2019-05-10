@@ -42,6 +42,7 @@ public class HUDContainer: UIVisualEffectView {
 public class ProgressView: UIView {
     public struct Options {
         public var lineCount: Int = 10
+        public var wholeDuration: TimeInterval = 1.0
 
         public init() {}
     }
@@ -79,9 +80,17 @@ public class ProgressView: UIView {
         let rotation = CATransform3DMakeRotation(angle, 0, 0, 1.0)
         replicatorLayer.instanceCount = options.lineCount
         replicatorLayer.instanceTransform = rotation
-
         
         replicatorLayer.addSublayer(line)
+
+        let fade = CABasicAnimation(keyPath: "opacity")
+        fade.fromValue = 1.0
+        fade.toValue = 0.0
+        fade.repeatCount = Float.greatestFiniteMagnitude
+        fade.duration = 0.5
+
+        replicatorLayer.instanceDelay = options.wholeDuration / TimeInterval(options.lineCount)
+        replicatorLayer.add(fade, forKey: "ProgressView")
 
         self.replicatorLayer = replicatorLayer
     }
