@@ -9,20 +9,19 @@
 import UIKit
 
 public class ProgressView: UIView {
-    public var lineCount: Int = 10
-    public var duration: TimeInterval = 1.0
-    public var lineSize: CGSize = CGSize(width: 6, height: 25)
-    public var lineColor: UIColor = UIColor.white
-
     public let replicatorLayer = CAReplicatorLayer()
     public let animation = CABasicAnimation(keyPath: "opacity")
     public let line = CALayer()
 
+    public var lineCount: Int = 10
+    public var duration: TimeInterval = 1.0
+    public var lineSize: CGSize = CGSize(width: 6, height: 25)
+    public var lineColor: UIColor = UIColor.darkGray
+
     public override init(frame: CGRect) {
         super.init(frame: .zero)
 
-        replicatorLayer.addSublayer(line)
-        layer.addSublayer(replicatorLayer)
+
         configure()
     }
 
@@ -48,6 +47,9 @@ public class ProgressView: UIView {
         animation.repeatCount = Float.greatestFiniteMagnitude
         animation.timingFunction = CAMediaTimingFunction(name: .linear)
         animation.duration = duration
+
+        replicatorLayer.addSublayer(line)
+        layer.addSublayer(replicatorLayer)
     }
 
     public override func layoutSubviews() {
@@ -57,6 +59,7 @@ public class ProgressView: UIView {
 
         replicatorLayer.frame = bounds
         line.position = CGPoint(x: rect.width/2, y: rect.height/2 * 30)
+        line.add(animation, forKey: "abc")
     }
 
     public override func didMoveToWindow() {
