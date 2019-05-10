@@ -15,17 +15,14 @@ public class FloatView: UIView {
     public init(contentView: UIView) {
         self.contentView = contentView
         super.init(frame: .zero)
-        setup()
+
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentView)
+        contentView.pinEdgesToSuperview()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
-    }
-
-    func setup() {
-        translatesAutoresizingMaskIntoConstraints = false
-        addSubview(contentView)
-        contentView.pinEdgesToSuperview()
     }
 
     public func show(on parentView: UIView) {

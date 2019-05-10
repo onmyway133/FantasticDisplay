@@ -13,14 +13,14 @@ public class HUDContainer: UIVisualEffectView {
         super.init(effect: UIBlurEffect(style: .light))
         self.contentView.addSubview(contentView)
         contentView.pinEdgesToSuperview()
-        setup()
+        configure()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
 
-    func setup() {
+    public func configure() {
         layer.cornerRadius = 8
         layer.masksToBounds = true
     }
@@ -32,23 +32,23 @@ public class ProgressView: UIView {
     public var lineSize: CGSize = CGSize(width: 6, height: 25)
     public var lineColor: UIColor = UIColor.white
 
-    public let replicatorLayer: CAReplicatorLayer
-    public let animation: CABasicAnimation
-    public let line: CALayer
+    public let replicatorLayer = CAReplicatorLayer()
+    public let animation = CABasicAnimation(keyPath: "opacity")
+    public let line = CALayer()
 
     public override init(frame: CGRect) {
-        self.replicatorLayer = CAReplicatorLayer()
-        self.line = CALayer()
-        self.animation = CABasicAnimation(keyPath: "opacity")
         super.init(frame: .zero)
-        setup()
+
+        replicatorLayer.addSublayer(line)
+        layer.addSublayer(replicatorLayer)
+        configure()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
 
-    func setup() {
+    public func configure() {
         replicatorLayer.instanceCount = lineCount
 
         let angle = CGFloat.pi * 2 / CGFloat(lineCount)
@@ -65,12 +65,8 @@ public class ProgressView: UIView {
         animation.repeatCount = Float.greatestFiniteMagnitude
         animation.timingFunction = CAMediaTimingFunction(name: .linear)
         animation.duration = duration
-        line.add(animation, forKey: "ProgressView")
 
-        replicatorLayer.addSublayer(line)
         replicatorLayer.instanceDelay = duration / TimeInterval(lineCount)
-
-        layer.addSublayer(replicatorLayer)
     }
 
     public override func layoutSubviews() {
