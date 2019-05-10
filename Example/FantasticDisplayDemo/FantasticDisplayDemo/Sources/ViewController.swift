@@ -29,15 +29,7 @@ class ViewController: UIViewController {
     }
 
     @objc func buttonTouched() {
-        var hudOptions = HUDContainer.Options()
-        hudOptions.contentView = ProgressView(options: ProgressView.Options())
-
-        let hudContainer = HUDContainer(options: hudOptions)
-
-        var floatOptions = FloatView.Options()
-        floatOptions.contentView = hudContainer
-
-        let floatView = FloatView(options: floatOptions)
+        let floatView = FloatView(contentView: HUDContainer(contentView: ProgressView()))
         floatView.show(on: view)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {

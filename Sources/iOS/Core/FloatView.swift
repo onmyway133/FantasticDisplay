@@ -8,34 +8,31 @@
 import UIKit
 
 public class FloatView: UIView {
-    public struct Options {
-        public var contentView: UIView = UIView()
-        public var animator: () -> UIViewPropertyAnimator = AnimatorFactory.simple
-        public var contrain: (UIView, UIView) -> Void = ConstrainFactory.center
+    public let contentView: UIView
+    public var animator: () -> UIViewPropertyAnimator = AnimatorFactory.simple
+    public var contrain: (UIView, UIView) -> Void = ConstrainFactory.center
 
-        public init() {}
-    }
-
-    public let options: Options
-
-    public init(options: Options) {
-        self.options = options
+    public init(contentView: UIView) {
+        self.contentView = contentView
         super.init(frame: .zero)
-
-        translatesAutoresizingMaskIntoConstraints = false
-        addSubview(options.contentView)
-        options.contentView.pinEdges(view: self)
+        setup()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
 
+    func setup() {
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentView)
+        contentView.pinEdges(view: self)
+    }
+
     public func show(on parentView: UIView) {
         parentView.addSubview(self)
-        options.contrain(self, parentView)
+        contrain(self, parentView)
 
-        let animator = options.animator()
+        let animator = self.animator()
         animator.addAnimations {
             self.layoutIfNeeded()
         }
