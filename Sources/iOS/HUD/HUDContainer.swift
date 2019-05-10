@@ -12,6 +12,7 @@ public class HUDContainer: UIVisualEffectView {
     public init(contentView: UIView) {
         super.init(effect: UIBlurEffect(style: .light))
         self.contentView.addSubview(contentView)
+        contentView.pinEdgesToSuperview()
         setup()
     }
 
@@ -28,7 +29,7 @@ public class HUDContainer: UIVisualEffectView {
 public class ProgressView: UIView {
     public var lineCount: Int = 10
     public var duration: TimeInterval = 1.0
-    public var lineSize: CGSize = CGSize(width: 6, height: 20)
+    public var lineSize: CGSize = CGSize(width: 6, height: 100)
     public var lineColor: UIColor = UIColor.white
     private var replicatorLayer: CAReplicatorLayer?
 
@@ -39,15 +40,16 @@ public class ProgressView: UIView {
             return
         }
 
+        backgroundColor = .red
+
         setup()
     }
 
     func setup() {
-        let rect = CGRect(x: 0, y: 0, width: 150, height: 150)
+        let rect = self.bounds
 
         let replicatorLayer = CAReplicatorLayer()
-        replicatorLayer.position = CGPoint(x: rect.width/2, y: rect.height / 2)
-        replicatorLayer.frame.size = rect.size
+        replicatorLayer.frame = bounds
         replicatorLayer.instanceCount = lineCount
 
         let angle = CGFloat.pi * 2 / CGFloat(lineCount)

@@ -25,7 +25,7 @@ public class FloatView: UIView {
     func setup() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
-        contentView.pinEdges(view: self)
+        contentView.pinEdgesToSuperview()
     }
 
     public func show(on parentView: UIView) {
