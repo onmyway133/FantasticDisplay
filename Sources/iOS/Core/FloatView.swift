@@ -7,9 +7,15 @@
 
 import UIKit
 
-
-
 public class FloatView: UIView {
+    public struct Options {
+        public var contentView: UIView = UIView()
+        public var animator: () -> UIViewPropertyAnimator = AnimatorFactory.simple
+        public var contrain: (UIView, UIView) -> Void = ConstrainFactory.center
+
+        public init() {}
+    }
+
     public let options: Options
 
     public init(options: Options) {
@@ -41,9 +47,4 @@ public class FloatView: UIView {
         removeFromSuperview()
     }
 }
-
-public class ToastContainer: UIView {
-
-}
-
 

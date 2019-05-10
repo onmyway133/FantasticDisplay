@@ -9,7 +9,16 @@
 import UIKit
 
 public class HUDContainer: UIVisualEffectView {
-    public init() {
+    public struct Options {
+        public var contentView: UIView = UIView()
+
+        public init() {}
+    }
+
+    public let options: Options
+
+    public init(options: Options) {
+        self.options = options
         super.init(effect: UIBlurEffect(style: .light))
         setup()
     }
@@ -31,7 +40,51 @@ public class HUDContainer: UIVisualEffectView {
 }
 
 public class ProgressView: UIView {
+    public struct Options {
+        public var lineCount: Int = 10
 
+        public init() {}
+    }
+
+    public let options: Options
+
+    public init(options: Options) {
+        self.options = options
+        super.init(frame: .zero)
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+
+    var replicatorLayer: CAReplicatorLayer?
+
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+
+        guard replicatorLayer == nil else {
+            return
+        }
+
+        setup()
+    }
+
+    func setup() {
+        let replicatorLayer = CAReplicatorLayer()
+
+        let line = CALayer()
+        line.backgroundColor = UIColor.red.cgColor
+
+        let angle = CGFloat.pi * 2 / CGFloat(options.lineCount)
+        let rotation = CATransform3DMakeRotation(angle, 0, 0, 1.0)
+        replicatorLayer.instanceCount = options.lineCount
+        replicatorLayer.instanceTransform = rotation
+
+        
+        replicatorLayer.addSublayer(line)
+
+        self.replicatorLayer = replicatorLayer
+    }
 }
 
 public class SuccessView: UIView {
