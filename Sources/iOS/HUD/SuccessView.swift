@@ -10,7 +10,7 @@ import UIKit
 
 public class SuccessView: UIView, AnimationAware {
     public let shapeLayer = CAShapeLayer()
-    public let animation = CABasicAnimation(keyPath: "strokeEnd")
+    public let animation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
 
     public var lineColor: UIColor = UIColor.darkGray
     public var duration: TimeInterval = 0.25
@@ -43,7 +43,7 @@ public class SuccessView: UIView, AnimationAware {
         animation.fromValue = 0.0
         animation.toValue = 1.0
         animation.duration = duration
-        animation.isRemovedOnCompletion = false
+//        animation.isRemovedOnCompletion = false
         animation.delegate = self
     }
 
@@ -65,11 +65,15 @@ public class SuccessView: UIView, AnimationAware {
 
         // Restart state for next animation
         withoutImplicitAnimation {
-            self.shapeLayer.strokeEnd = 0.0
+//            self.shapeLayer.strokeEnd = 0.0
         }
     }
 
     public func startAnimation() {
+        withoutImplicitAnimation {
+            shapeLayer.strokeEnd = 1.0
+        }
+
         shapeLayer.add(animation, forKey: "")
     }
 
@@ -82,7 +86,7 @@ extension SuccessView: CAAnimationDelegate {
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         // `isRemovedOnCompletion` does not seem to work
         withoutImplicitAnimation {
-            self.shapeLayer.strokeEnd = 1.0
+//            self.shapeLayer.strokeEnd = 1.0
         }
     }
 }

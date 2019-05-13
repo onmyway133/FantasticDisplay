@@ -12,8 +12,8 @@ public class ErrorView: UIView, AnimationAware {
     public let line1 = CAShapeLayer()
     public let line2 = CAShapeLayer()
 
-    public let animation1 = CASpringAnimation(keyPath: "transform.rotation.z")
-    public let animation2 = CASpringAnimation(keyPath: "transform.rotation.z")
+    public let animation1 = CASpringAnimation(keyPath: #keyPath(CALayer.transform))
+    public let animation2 = CASpringAnimation(keyPath: #keyPath(CALayer.transform))
 
     public var lineColor: UIColor = UIColor.darkGray
     public var duration: TimeInterval = 0.25
@@ -37,7 +37,7 @@ public class ErrorView: UIView, AnimationAware {
 
     public func configure() {
         [line1, line2].forEach {
-            $0.fillMode = .forwards
+//            $0.fillMode = .forwards
             $0.lineCap = .round
             $0.lineJoin = .round
             $0.fillColor = nil

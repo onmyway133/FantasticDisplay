@@ -10,7 +10,7 @@ import UIKit
 
 public class ProgressView: UIView, AnimationAware {
     public let replicatorLayer = CAReplicatorLayer()
-    public let animation = CABasicAnimation(keyPath: "opacity")
+    public let animation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
     public let line = CALayer()
 
     public var lineCount: Int = 10

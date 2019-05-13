@@ -3,7 +3,7 @@ import FantasticDisplay
 
 class ViewController: UIViewController {
     let imageView = UIImageView(image: UIImage(named: "wallpaper"))
-    let floatView = FloatView(contentView: HUDContainer(contentView: ErrorView()))
+    let floatView = FloatView(contentView: HUDContainer(contentView: SuccessView()))
 
     override func viewDidLoad() {
         super.viewDidLoad()
