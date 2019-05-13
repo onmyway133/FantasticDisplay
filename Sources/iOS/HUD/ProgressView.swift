@@ -15,7 +15,7 @@ public class ProgressView: UIView, AnimationAware {
 
     public var lineCount: Int = 12
     public var duration: TimeInterval = 1.0
-    public var lineSize: CGSize = CGSize(width: 25, height: 6)
+    public var lineSize: CGSize = CGSize(width: 20, height: 6)
     public var lineColor: UIColor = UIColor.darkGray
 
     public override init(frame: CGRect) {
@@ -49,7 +49,9 @@ public class ProgressView: UIView, AnimationAware {
         replicatorLayer.addSublayer(line)
         layer.addSublayer(replicatorLayer)
 
-        line.position = CGPoint(x: 30, y: 70)
+        // x: the larger, the closer to center
+        // y: half the height, changing affects rotation of lines
+        line.position = CGPoint(x: 48, y: 75)
     }
 
     public override func layoutSubviews() {
