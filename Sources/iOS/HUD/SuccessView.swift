@@ -65,7 +65,7 @@ public class SuccessView: UIView, AnimationAware {
 
     public func startAnimation() {
         shapeLayer.strokeEnd = 1.0
-        shapeLayer.add(animation, forKey: "")
+        shapeLayer.add(animation, forKey: nil)
     }
 
     public func stopAnimation() {

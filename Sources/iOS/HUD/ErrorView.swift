@@ -76,8 +76,8 @@ public class ErrorView: UIView, AnimationAware {
         line1.transform = CATransform3DMakeRotation(CGFloat.pi/4, 0, 0, 1.0)
         line2.transform = CATransform3DMakeRotation(-CGFloat.pi/4, 0, 0, 1.0)
 
-        line1.add(animation1, forKey: "")
-        line2.add(animation2, forKey: "")
+        line1.add(animation1, forKey: nil)
+        line2.add(animation2, forKey: nil)
     }
 
     public func stopAnimation() {
