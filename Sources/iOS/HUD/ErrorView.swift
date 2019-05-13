@@ -37,11 +37,7 @@ public class ErrorView: UIView, AnimationAware {
 
     public func configure() {
         [line1, line2].forEach {
-            $0.lineCap = .round
-            $0.lineJoin = .round
-            $0.fillColor = nil
-            $0.strokeColor = lineColor.cgColor
-            $0.lineWidth = 6
+            $0.backgroundColor = lineColor.cgColor
         }
 
         [animation1, animation2].forEach {
@@ -59,15 +55,8 @@ public class ErrorView: UIView, AnimationAware {
 
     private func configureSize() {
         [line1, line2].forEach {
-            let rect = CGRect(
-                x: 0,
-                y: 0,
-                width: bounds.size.width * 0.6,
-                height: 1
-            )
-
-            $0.path = UIBezierPath(roundedRect: rect, cornerRadius: 1).cgPath
-            $0.frame = rect
+            $0.cornerRadius = 3
+            $0.frame.size = CGSize(width: bounds.width*0.6, height: 6)
             $0.position = layer.position
         }
     }
@@ -80,11 +69,11 @@ public class ErrorView: UIView, AnimationAware {
     }
 
     public func startAnimation() {
-        line1.transform = CATransform3DRotate(line1.transform, CGFloat.pi/4, 0, 0, 1.0)
-        line2.transform = CATransform3DRotate(line2.transform, -CGFloat.pi/4, 0, 0, 1.0)
+//        line1.transform = CATransform3DMakeRotation(CGFloat.pi/4, 0, 0, 1.0)
+//        line2.transform = CATransform3DMakeRotation(-CGFloat.pi/4, 0, 0, 1.0)
 
-        line1.add(animation1, forKey: "")
-        line2.add(animation2, forKey: "")
+//        line1.add(animation1, forKey: "")
+//        line2.add(animation2, forKey: "")
     }
 
     public func stopAnimation() {
