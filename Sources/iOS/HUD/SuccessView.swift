@@ -39,13 +39,11 @@ public class SuccessView: UIView, AnimationAware {
         shapeLayer.strokeColor = lineColor.cgColor
         shapeLayer.lineWidth = 6
 
-        shapeLayer.strokeEnd = 0.0
-
         animation.timingFunction = CAMediaTimingFunction(name: .easeIn)
         animation.fromValue = 0.0
         animation.toValue = 1.0
         animation.duration = duration
-        animation.delegate = self
+        animation.isRemovedOnCompletion = false
     }
 
     private func configurePath() {
@@ -61,17 +59,17 @@ public class SuccessView: UIView, AnimationAware {
         shapeLayer.path = path.cgPath
     }
 
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
+
+        shapeLayer.strokeEnd = 0.0
+    }
+
     public func startAnimation() {
         shapeLayer.add(animation, forKey: "")
     }
 
     public func stopAnimation() {
         shapeLayer.removeAllAnimations()
-    }
-}
-
-extension SuccessView: CAAnimationDelegate {
-    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        shapeLayer.strokeEnd = 1.0
     }
 }
