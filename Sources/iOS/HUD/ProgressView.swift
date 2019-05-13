@@ -13,9 +13,9 @@ public class ProgressView: UIView, AnimationAware {
     public let animation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
     public let line = CALayer()
 
-    public var lineCount: Int = 10
+    public var lineCount: Int = 12
     public var duration: TimeInterval = 1.0
-    public var lineSize: CGSize = CGSize(width: 6, height: 25)
+    public var lineSize: CGSize = CGSize(width: 25, height: 6)
     public var lineColor: UIColor = UIColor.darkGray
 
     public override init(frame: CGRect) {
@@ -38,8 +38,7 @@ public class ProgressView: UIView, AnimationAware {
 
         line.backgroundColor = lineColor.cgColor
         line.frame.size = lineSize
-        line.opacity = 0.0
-        line.cornerRadius = lineSize.width / 2
+        line.cornerRadius = lineSize.height / 2
 
         animation.fromValue = 1.0
         animation.toValue = 0.0
@@ -49,24 +48,18 @@ public class ProgressView: UIView, AnimationAware {
 
         replicatorLayer.addSublayer(line)
         layer.addSublayer(replicatorLayer)
+
+        line.position = CGPoint(x: 30, y: 70)
     }
 
     public override func layoutSubviews() {
         super.layoutSubviews()
 
-        guard line.bounds.size.width <= 0 else {
-            return
-        }
-
-        let rect = self.bounds
-
         replicatorLayer.frame = bounds
-        line.position = CGPoint(x: rect.width/2, y: rect.height/2 * 30)
-        replicatorLayer.position = layer.position
     }
 
     public func startAnimation() {
-        line.add(animation, forKey: "")
+        line.add(animation, forKey: nil)
     }
 
     public func stopAnimation() {
