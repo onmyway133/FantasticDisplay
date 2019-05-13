@@ -16,7 +16,7 @@ public class ErrorView: UIView, AnimationAware {
     public let animation2 = CASpringAnimation(keyPath: #keyPath(CALayer.transform))
 
     public var lineColor: UIColor = UIColor.darkGray
-    public var duration: TimeInterval = 0.25
+    public var duration: TimeInterval = 1.0
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,12 +41,12 @@ public class ErrorView: UIView, AnimationAware {
         }
 
         [animation1, animation2].forEach {
-            $0.fromValue = CGFloat.pi/2
-            $0.damping = 1
-            $0.mass = 1
-            $0.initialVelocity = 1
+            $0.fromValue = 0
+            $0.damping = 0.9
+            $0.initialVelocity = 0.2
             $0.duration = duration
             $0.valueFunction = CAValueFunction(name: CAValueFunctionName.rotateZ)
+            $0.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         }
 
         animation1.toValue = CGFloat.pi / 4
@@ -54,6 +54,10 @@ public class ErrorView: UIView, AnimationAware {
     }
 
     private func configureSize() {
+        guard line1.frame.width <= 0 else {
+            return
+        }
+
         [line1, line2].forEach {
             $0.cornerRadius = 3
             $0.frame.size = CGSize(width: bounds.width*0.6, height: 6)
@@ -69,11 +73,11 @@ public class ErrorView: UIView, AnimationAware {
     }
 
     public func startAnimation() {
-//        line1.transform = CATransform3DMakeRotation(CGFloat.pi/4, 0, 0, 1.0)
-//        line2.transform = CATransform3DMakeRotation(-CGFloat.pi/4, 0, 0, 1.0)
+        line1.transform = CATransform3DMakeRotation(CGFloat.pi/4, 0, 0, 1.0)
+        line2.transform = CATransform3DMakeRotation(-CGFloat.pi/4, 0, 0, 1.0)
 
-//        line1.add(animation1, forKey: "")
-//        line2.add(animation2, forKey: "")
+        line1.add(animation1, forKey: "")
+        line2.add(animation2, forKey: "")
     }
 
     public func stopAnimation() {
