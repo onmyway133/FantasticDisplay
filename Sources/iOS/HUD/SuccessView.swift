@@ -13,7 +13,7 @@ public class SuccessView: UIView, AnimationAware {
     public let animation = CABasicAnimation(keyPath: "strokeEnd")
 
     public var lineColor: UIColor = UIColor.darkGray
-    public var duration: TimeInterval = 0.5
+    public var duration: TimeInterval = 0.25
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,6 +44,7 @@ public class SuccessView: UIView, AnimationAware {
         animation.toValue = 1.0
         animation.duration = duration
         animation.isRemovedOnCompletion = false
+        animation.delegate = self
     }
 
     private func configurePath() {
@@ -62,7 +63,9 @@ public class SuccessView: UIView, AnimationAware {
     public override func didMoveToWindow() {
         super.didMoveToWindow()
 
-        shapeLayer.strokeEnd = 0.0
+        withoutImplicitAnimation {
+            self.shapeLayer.strokeEnd = 0.0
+        }
     }
 
     public func startAnimation() {
@@ -71,5 +74,13 @@ public class SuccessView: UIView, AnimationAware {
 
     public func stopAnimation() {
         shapeLayer.removeAllAnimations()
+    }
+}
+
+extension SuccessView: CAAnimationDelegate {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        withoutImplicitAnimation {
+            self.shapeLayer.strokeEnd = 1.0
+        }
     }
 }

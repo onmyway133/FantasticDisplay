@@ -27,3 +27,12 @@ extension UIView {
         ])
     }
 }
+
+extension UIView {
+    func withoutImplicitAnimation(_ closure: () -> Void) {
+        CATransaction.begin()
+        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+        closure()
+        CATransaction.commit()
+    }
+}
