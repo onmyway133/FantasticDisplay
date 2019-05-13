@@ -52,7 +52,7 @@ public class DefaultFloatViewDelegate: FloatViewDelegate {
     }
 
     public func animateShow(floatView: FloatView) {
-        let animator = UIViewPropertyAnimator(duration: 0.35, curve: .easeIn)
+        let animator = UIViewPropertyAnimator(duration: 0.25, curve: .easeIn)
         floatView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
 
         animator.addAnimations {
@@ -67,7 +67,7 @@ public class DefaultFloatViewDelegate: FloatViewDelegate {
     }
 
     public func animateHide(floatView: FloatView) {
-        let animator = UIViewPropertyAnimator(duration: 0.35, curve: .easeIn)
+        let animator = UIViewPropertyAnimator(duration: 0.24, curve: .easeIn)
 
         animator.addAnimations {
             floatView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
