@@ -32,7 +32,6 @@ public class SuccessView: UIView, AnimationAware {
     }
 
     public func configure() {
-        shapeLayer.fillMode = .forwards
         shapeLayer.lineCap = .round
         shapeLayer.lineJoin = .round
         shapeLayer.fillColor = nil
@@ -43,8 +42,6 @@ public class SuccessView: UIView, AnimationAware {
         animation.fromValue = 0.0
         animation.toValue = 1.0
         animation.duration = duration
-//        animation.isRemovedOnCompletion = false
-        animation.delegate = self
     }
 
     private func configurePath() {
@@ -63,30 +60,15 @@ public class SuccessView: UIView, AnimationAware {
     public override func didMoveToWindow() {
         super.didMoveToWindow()
 
-        // Restart state for next animation
-        withoutImplicitAnimation {
-//            self.shapeLayer.strokeEnd = 0.0
-        }
+        shapeLayer.strokeEnd = 0.0
     }
 
     public func startAnimation() {
-        withoutImplicitAnimation {
-            shapeLayer.strokeEnd = 1.0
-        }
-
+        shapeLayer.strokeEnd = 1.0
         shapeLayer.add(animation, forKey: "")
     }
 
     public func stopAnimation() {
         shapeLayer.removeAllAnimations()
-    }
-}
-
-extension SuccessView: CAAnimationDelegate {
-    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        // `isRemovedOnCompletion` does not seem to work
-        withoutImplicitAnimation {
-//            self.shapeLayer.strokeEnd = 1.0
-        }
     }
 }
