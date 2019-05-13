@@ -54,11 +54,15 @@ public class ProgressView: UIView, AnimationAware {
     public override func layoutSubviews() {
         super.layoutSubviews()
 
+        guard line.bounds.size.width <= 0 else {
+            return
+        }
+
         let rect = self.bounds
 
         replicatorLayer.frame = bounds
         line.position = CGPoint(x: rect.width/2, y: rect.height/2 * 30)
-        line.add(animation, forKey: "abc")
+        replicatorLayer.position = layer.position
     }
 
     public func startAnimation() {
