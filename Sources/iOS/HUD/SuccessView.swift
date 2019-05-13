@@ -8,11 +8,12 @@
 
 import UIKit
 
-public class SuccessView: UIView {
+public class SuccessView: UIView, AnimationAware {
     public let shapeLayer = CAShapeLayer()
     public let animation = CABasicAnimation(keyPath: "strokeEnd")
 
     public var lineColor: UIColor = UIColor.darkGray
+    public var duration: TimeInterval = 0.5
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,16 +28,10 @@ public class SuccessView: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
 
-        shapeLayer.position = CGPoint(x: bounds.width/2, y: bounds.height/2)
+        configurePath()
     }
 
     public func configure() {
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: 20))
-        path.addLine(to: CGPoint(x: 30, y: 70))
-        path.addLine(to: CGPoint(x: 100, y: 0))
-
-        shapeLayer.path = path.cgPath
         shapeLayer.fillMode = .forwards
         shapeLayer.lineCap = .round
         shapeLayer.lineJoin = .round
@@ -44,17 +39,39 @@ public class SuccessView: UIView {
         shapeLayer.strokeColor = lineColor.cgColor
         shapeLayer.lineWidth = 6
 
+        shapeLayer.strokeEnd = 0.0
+
         animation.timingFunction = CAMediaTimingFunction(name: .easeIn)
+        animation.fromValue = 0.0
+        animation.toValue = 1.0
+        animation.duration = duration
+        animation.delegate = self
     }
 
-    public override func didMoveToWindow() {
-        super.didMoveToWindow()
+    private func configurePath() {
+        let size = CGSize(width: 80, height: 60)
+        shapeLayer.frame = CGRect(origin: .zero, size: size)
+        shapeLayer.position = layer.position
 
-        let key = "SuccessView"
-        if window != nil {
-            shapeLayer.add(animation, forKey: key)
-        } else {
-            shapeLayer.removeAnimation(forKey: key)
-        }
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: size.width * 0, y: size.height * 0.48))
+        path.addLine(to: CGPoint(x: size.width * 0.38, y: size.height))
+        path.addLine(to: CGPoint(x: size.width, y: size.height * 0.01))
+
+        shapeLayer.path = path.cgPath
+    }
+
+    public func startAnimation() {
+        shapeLayer.add(animation, forKey: "")
+    }
+
+    public func stopAnimation() {
+        shapeLayer.removeAllAnimations()
+    }
+}
+
+extension SuccessView: CAAnimationDelegate {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        shapeLayer.strokeEnd = 1.0
     }
 }

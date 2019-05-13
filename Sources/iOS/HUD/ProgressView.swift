@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ProgressView: UIView {
+public class ProgressView: UIView, AnimationAware {
     public let replicatorLayer = CAReplicatorLayer()
     public let animation = CABasicAnimation(keyPath: "opacity")
     public let line = CALayer()
@@ -20,7 +20,6 @@ public class ProgressView: UIView {
 
     public override init(frame: CGRect) {
         super.init(frame: .zero)
-
 
         configure()
     }
@@ -62,14 +61,11 @@ public class ProgressView: UIView {
         line.add(animation, forKey: "abc")
     }
 
-    public override func didMoveToWindow() {
-        super.didMoveToWindow()
+    public func startAnimation() {
+        line.add(animation, forKey: "")
+    }
 
-        let key = "ProgressView"
-        if window != nil {
-            line.add(animation, forKey: key)
-        } else {
-            line.removeAnimation(forKey: key)
-        }
+    public func stopAnimation() {
+        line.removeAllAnimations()
     }
 }

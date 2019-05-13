@@ -8,11 +8,14 @@
 
 import UIKit
 
-public class HUDContainer: UIVisualEffectView {
-    public init(contentView: UIView) {
+public class HUDContainer: UIVisualEffectView, AnimationAware {
+    private let innerContentView: UIView & AnimationAware
+
+    public init(contentView: UIView & AnimationAware) {
+        self.innerContentView = contentView
         super.init(effect: UIBlurEffect(style: .light))
-        self.contentView.addSubview(contentView)
-        contentView.pinEdgesToSuperview()
+        self.contentView.addSubview(innerContentView)
+        innerContentView.pinEdgesToSuperview()
         configure()
     }
 
@@ -23,5 +26,13 @@ public class HUDContainer: UIVisualEffectView {
     public func configure() {
         layer.cornerRadius = 8
         layer.masksToBounds = true
+    }
+
+    public func startAnimation() {
+        innerContentView.startAnimation()
+    }
+
+    public func endAnimation() {
+        innerContentView.stopAnimation()
     }
 }

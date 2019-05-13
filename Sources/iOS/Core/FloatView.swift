@@ -8,11 +8,11 @@
 import UIKit
 
 public class FloatView: UIView {
-    public let contentView: UIView
+    public let contentView: UIView & AnimationAware
     public var animator: () -> UIViewPropertyAnimator = AnimatorFactory.simple
     public var contrain: (UIView, UIView) -> Void = ConstrainFactory.center
 
-    public init(contentView: UIView) {
+    public init(contentView: UIView & AnimationAware) {
         self.contentView = contentView
         super.init(frame: .zero)
 
@@ -34,6 +34,10 @@ public class FloatView: UIView {
             self.layoutIfNeeded()
         }
 
+        animator.addCompletion { _ in
+            self.contentView.startAnimation()
+        }
+
         animator.startAnimation()
     }
 
@@ -41,6 +45,10 @@ public class FloatView: UIView {
         let animator = self.animator()
         animator.addAnimations {
             self.removeFromSuperview()
+        }
+
+        animator.addCompletion { _ in
+            self.contentView.stopAnimation()
         }
 
         animator.startAnimation()
