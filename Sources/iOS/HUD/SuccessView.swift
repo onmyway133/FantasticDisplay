@@ -63,6 +63,7 @@ public class SuccessView: UIView, AnimationAware {
     public override func didMoveToWindow() {
         super.didMoveToWindow()
 
+        // Restart state for next animation
         withoutImplicitAnimation {
             self.shapeLayer.strokeEnd = 0.0
         }
@@ -79,6 +80,7 @@ public class SuccessView: UIView, AnimationAware {
 
 extension SuccessView: CAAnimationDelegate {
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        // `isRemovedOnCompletion` does not seem to work
         withoutImplicitAnimation {
             self.shapeLayer.strokeEnd = 1.0
         }
