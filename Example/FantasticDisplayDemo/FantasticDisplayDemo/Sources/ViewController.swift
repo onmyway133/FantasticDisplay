@@ -3,7 +3,6 @@ import FantasticDisplay
 
 class ViewController: UIViewController {
     let imageView = UIImageView(image: UIImage(named: "wallpaper"))
-    let floatView = FloatView(contentView: HUDContainer(contentView: ProgressView()))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +41,11 @@ class ViewController: UIViewController {
     }
 
     @objc func showButtonTouched() {
-        floatView.show(on: view)
+        FantasticDisplay.showHUD(type: .progress, on: view)
     }
 
     @objc func hideButtonTouched() {
-        floatView.hide()
+        FantasticDisplay.hideHUD()
     }
 }
 
