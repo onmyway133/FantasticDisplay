@@ -33,18 +33,3 @@ public func hideHUD() {
     Manager.shared.floatView.hide()
 }
 
-class DummyContentView: UIView, AnimationAware {
-    func startAnimation() {}
-
-    func stopAnimation() {}
-}
-
-class Manager {
-    var floatView: FloatView = FloatView(contentView: DummyContentView()) {
-        didSet {
-            oldValue.removeFromSuperview()
-        }
-    }
-
-    static var shared = Manager()
-}
