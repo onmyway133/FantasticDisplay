@@ -23,8 +23,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            stackView.topAnchor.constraint(equalTo: view.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         ])
     }
 
