@@ -52,7 +52,7 @@ extension ShapeView {
             path = string
         }
 
-        let bezierPath = UIBezierPath.from(svgPath: path)
+        let bezierPath = UIBezierPath(svgPath: path)
         let rect = bezierPath.bounds
         let scaleSize = CGSize(width: bezierPath.bounds.width/layerSize.width, height: bezierPath.bounds.height/layerSize.height)
         let scale = min(scaleSize.width, scaleSize.height)
