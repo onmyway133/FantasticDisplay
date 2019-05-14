@@ -20,7 +20,7 @@ public enum ShapeType {
     case custom(String)
 }
 
-public func showHUD(type: HUDType, on parentView: UIView? = nil) {
+public func showHUD(type: HUDType, text: String? = nil, on parentView: UIView? = nil) {
     let contentView: UIView & AnimationAware
     switch type {
     case .progress:
@@ -35,7 +35,10 @@ public func showHUD(type: HUDType, on parentView: UIView? = nil) {
         contentView = shapeView
     }
 
-    showFloat(contentView: HUDContainer(contentView: contentView), on: parentView, delegate: HUDHandler())
+    let hudContainer = HUDContainer(contentView: contentView)
+    hudContainer.text = text
+
+    showFloat(contentView: hudContainer, on: parentView, delegate: HUDHandler())
 }
 
 public func showToast(text: String, on parentView: UIView? = nil) {

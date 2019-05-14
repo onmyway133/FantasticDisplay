@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
 
     @objc func showHUDProgress() {
-        FantasticDisplay.showHUD(type: .progress, on: view)
+        FantasticDisplay.showHUD(type: .progress, text: "Loading", on: view)
     }
 
     @objc func showHUDSuccess() {
