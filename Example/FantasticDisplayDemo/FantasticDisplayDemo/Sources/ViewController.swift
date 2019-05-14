@@ -41,11 +41,11 @@ class ViewController: UIViewController {
     }
 
     @objc func showButtonTouched() {
-//        FantasticDisplay.showHUD(type: .error, on: view)
+        FantasticDisplay.showHUD(type: .success, on: view)
 
         let text1 = "Welcome to Fantastic Display"
         let text2 = "What you don't know is what you haven't learned. Contact github.com/onmyway133"
-        FantasticDisplay.showToast(text: text2, on: view)
+//        FantasticDisplay.showToast(text: text2, on: view)
     }
 
     @objc func hideButtonTouched() {

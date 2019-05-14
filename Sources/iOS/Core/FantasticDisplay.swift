@@ -42,7 +42,11 @@ private func showFloat(contentView: UIView & AnimationAware, on parentView: UIVi
     let floatView = FloatView(contentView: contentView)
     floatView.delegate = delegate
 
-    floatView.show(on: parentView!)
+    guard let parentView = parentView ?? UIApplication.shared.keyWindow else {
+        return
+    }
+
+    floatView.show(on: parentView)
     Manager.shared.floatView = floatView
 }
 
