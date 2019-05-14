@@ -38,7 +38,7 @@ public class HUDContainer: UIVisualEffectView, AnimationAware {
         layer.masksToBounds = true
 
         label.isHidden = false
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textColor = UIColor.black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
