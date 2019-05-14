@@ -44,8 +44,9 @@ public class HUDContainer: UIVisualEffectView, AnimationAware {
         label.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
+            label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
         ])
     }
 
