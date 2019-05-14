@@ -3,35 +3,37 @@ import FantasticDisplay
 
 class ViewController: UIViewController {
     let imageView = UIImageView(image: UIImage(named: "wallpaper"))
+    let stackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         view.addSubview(imageView)
 
-        let showButton = UIButton(type: .system)
-        showButton.setTitle("Show", for: .normal)
-        showButton.setTitleColor(.black, for: .normal)
-        showButton.addTarget(self, action: #selector(showButtonTouched), for: .touchUpInside)
+        stackView.axis = .vertical
 
-        view.addSubview(showButton)
-        showButton.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(makeButton(title: "HUD progress", selector: #selector(showHUDProgress)))
+        stackView.addArrangedSubview(makeButton(title: "HUD success", selector: #selector(showHUDSuccess)))
+        stackView.addArrangedSubview(makeButton(title: "HUD error", selector: #selector(showHUDError)))
+        stackView.addArrangedSubview(makeButton(title: "Toast message", selector: #selector(showToastMessage)))
+        stackView.addArrangedSubview(makeButton(title: "Hide", selector: #selector(showHUDProgress)))
+
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            showButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            showButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
 
-        let hideButton = UIButton(type: .system)
-        hideButton.setTitle("Hide", for: .normal)
-        hideButton.setTitleColor(.black, for: .normal)
-        hideButton.addTarget(self, action: #selector(hideButtonTouched), for: .touchUpInside)
-
-        view.addSubview(hideButton)
-        hideButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            hideButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            hideButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200)
-        ])
+    func makeButton(title: String, selector: Selector) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: selector, for: .touchUpInside)
+        return button
     }
 
     override func viewDidLayoutSubviews() {
@@ -40,15 +42,24 @@ class ViewController: UIViewController {
         imageView.frame = view.bounds
     }
 
-    @objc func showButtonTouched() {
-        FantasticDisplay.showHUD(type: .success, on: view)
-
-        let text1 = "Welcome to Fantastic Display"
-        let text2 = "What you don't know is what you haven't learned. Contact github.com/onmyway133"
-//        FantasticDisplay.showToast(text: text2, on: view)
+    @objc func showHUDProgress() {
+        FantasticDisplay.showHUD(type: .progress, on: view)
     }
 
-    @objc func hideButtonTouched() {
+    @objc func showHUDSuccess() {
+        FantasticDisplay.showHUD(type: .success, on: view)
+    }
+
+    @objc func showHUDError() {
+        FantasticDisplay.showHUD(type: .error, on: view)
+    }
+
+    @objc func showToastMessage() {
+        let text2 = "What you don't know is what you haven't learned. Contact github.com/onmyway133"
+        FantasticDisplay.showToast(text: text2, on: view)
+    }
+
+    @objc func hide() {
         FantasticDisplay.hide()
     }
 }
