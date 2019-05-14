@@ -24,19 +24,24 @@ public func showHUD(type: HUDType, on parentView: UIView? = nil) {
         contentView = ErrorView()
     }
 
-    showFloat(contentView: HUDContainer(contentView: contentView), on: parentView)
+    showFloat(contentView: HUDContainer(contentView: contentView), on: parentView, delegate: HUDHandler())
 }
 
 public func showToast(text: String, on parentView: UIView? = nil) {
-    showFloat(contentView: ToastContainer(), on: parentView)
+    let messageView = MessageView()
+    messageView.label.text = text
+
+    showFloat(contentView: ToastContainer(contentView: messageView), on: parentView, delegate: ToastHandler())
 }
 
 public func hide() {
     Manager.shared.floatView.hide()
 }
 
-private func showFloat(contentView: UIView & AnimationAware, on parentView: UIView? = nil) {
+private func showFloat(contentView: UIView & AnimationAware, on parentView: UIView? = nil, delegate: FloatViewDelegate) {
     let floatView = FloatView(contentView: contentView)
+    floatView.delegate = delegate
+
     floatView.show(on: parentView!)
     Manager.shared.floatView = floatView
 }

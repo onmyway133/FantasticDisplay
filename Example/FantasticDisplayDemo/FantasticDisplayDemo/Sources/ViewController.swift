@@ -41,7 +41,8 @@ class ViewController: UIViewController {
     }
 
     @objc func showButtonTouched() {
-        FantasticDisplay.showHUD(type: .error, on: view)
+//        FantasticDisplay.showHUD(type: .error, on: view)
+        FantasticDisplay.showToast(text: "Welcome to Fanstatic Display", on: view)
     }
 
     @objc func hideButtonTouched() {

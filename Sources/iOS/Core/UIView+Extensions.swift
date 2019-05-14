@@ -9,21 +9,37 @@
 import UIKit
 
 extension UIView {
-    func pinEdgesToSuperview() {
+    func pinEdgesToSuperview(insets: UIEdgeInsets = .zero) {
         guard let superview = self.superview else {
             return
         }
 
-        pinEdges(view: superview)
+        pinEdges(view: superview, insets: insets)
     }
 
-    func pinEdges(view: UIView) {
+    func pinCenterToSuperview() {
+        guard let superview = self.superview else {
+            return
+        }
+
+        pinCenter(view: superview)
+    }
+
+    func pinEdges(view: UIView, insets: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            leftAnchor.constraint(equalTo: view.leftAnchor),
-            rightAnchor.constraint(equalTo: view.rightAnchor),
-            topAnchor.constraint(equalTo: view.topAnchor),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            leftAnchor.constraint(equalTo: view.leftAnchor, constant: insets.left),
+            rightAnchor.constraint(equalTo: view.rightAnchor, constant: insets.right),
+            topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom)
+        ])
+    }
+
+    func pinCenter(view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
 }
