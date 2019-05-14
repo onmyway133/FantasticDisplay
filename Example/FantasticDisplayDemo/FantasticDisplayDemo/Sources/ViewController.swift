@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(makeButton(title: "HUD success", selector: #selector(showHUDSuccess)))
         stackView.addArrangedSubview(makeButton(title: "HUD error", selector: #selector(showHUDError)))
         stackView.addArrangedSubview(makeButton(title: "HUD heart", selector: #selector(showHUDHeart)))
-        stackView.addArrangedSubview(makeButton(title: "HUD bell", selector: #selector(showHUDBell)))
+        stackView.addArrangedSubview(makeButton(title: "HUD star", selector: #selector(showHUDStar)))
         stackView.addArrangedSubview(makeButton(title: "Toast message", selector: #selector(showToastMessage)))
         stackView.addArrangedSubview(makeButton(title: "Hide", selector: #selector(hide)))
 
@@ -60,8 +60,8 @@ class ViewController: UIViewController {
         FantasticDisplay.showHUD(type: .shape(.heart), on: view)
     }
 
-    @objc func showHUDBell() {
-        FantasticDisplay.showHUD(type: .shape(.bell), on: view)
+    @objc func showHUDStar() {
+        FantasticDisplay.showHUD(type: .shape(.star), on: view)
     }
 
     @objc func showToastMessage() {

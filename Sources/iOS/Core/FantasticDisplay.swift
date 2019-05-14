@@ -16,7 +16,7 @@ public enum HUDType {
 
 public enum ShapeType {
     case heart
-    case bell
+    case star
     case custom(String)
 }
 
