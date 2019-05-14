@@ -11,6 +11,13 @@ public enum HUDType {
     case progress
     case success
     case error
+    case shape(ShapeType)
+}
+
+public enum ShapeType {
+    case heart
+    case bell
+    case custom(String)
 }
 
 public func showHUD(type: HUDType, on parentView: UIView? = nil) {
@@ -22,6 +29,10 @@ public func showHUD(type: HUDType, on parentView: UIView? = nil) {
         contentView = SuccessView()
     case .error:
         contentView = ErrorView()
+    case .shape(let shapeType):
+        let shapeView = ShapeView()
+        shapeView.apply(type: shapeType)
+        contentView = shapeView
     }
 
     showFloat(contentView: HUDContainer(contentView: contentView), on: parentView, delegate: HUDHandler())
