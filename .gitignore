@@ -26,6 +26,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 *.xcsettings
+*.xctimeline
 
 # CocoaPods
 Pods
