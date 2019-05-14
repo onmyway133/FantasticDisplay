@@ -25,8 +25,6 @@ public class MessageView: UIView, AnimationAware {
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         label.textAlignment = .center
         label.numberOfLines = 0
-
-        label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         label.pinEdgesToSuperview(insets: UIEdgeInsets(top: 8, left: 8, bottom: -8, right: -8))
     }
 }
