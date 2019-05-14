@@ -22,7 +22,7 @@ public class MessageView: UIView, AnimationAware {
 
     public func configure() {
         label.textColor = .white
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
         label.textAlignment = .center
         label.numberOfLines = 0
 
