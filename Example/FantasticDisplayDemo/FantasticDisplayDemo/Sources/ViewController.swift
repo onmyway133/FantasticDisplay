@@ -16,14 +16,14 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(makeButton(title: "HUD success", selector: #selector(showHUDSuccess)))
         stackView.addArrangedSubview(makeButton(title: "HUD error", selector: #selector(showHUDError)))
         stackView.addArrangedSubview(makeButton(title: "Toast message", selector: #selector(showToastMessage)))
-        stackView.addArrangedSubview(makeButton(title: "Hide", selector: #selector(showHUDProgress)))
+        stackView.addArrangedSubview(makeButton(title: "Hide", selector: #selector(hide)))
 
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
         ])
     }
 
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .caption1)
         button.addTarget(self, action: selector, for: .touchUpInside)
         return button
     }
