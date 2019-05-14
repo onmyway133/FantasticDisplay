@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
 
     @objc func hideButtonTouched() {
-        FantasticDisplay.hideHUD()
+        FantasticDisplay.hide()
     }
 }
 

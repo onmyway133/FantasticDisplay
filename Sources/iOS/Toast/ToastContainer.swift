@@ -8,6 +8,6 @@
 
 import UIKit
 
-public class ToastContainer: UIView {
-
+public class ToastContainer: UIView, AnimationAware {
+    
 }

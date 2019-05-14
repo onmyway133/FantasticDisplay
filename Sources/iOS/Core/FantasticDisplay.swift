@@ -24,12 +24,21 @@ public func showHUD(type: HUDType, on parentView: UIView? = nil) {
         contentView = ErrorView()
     }
 
-    let floatView = FloatView(contentView: HUDContainer(contentView: contentView))
+    showFloat(contentView: HUDContainer(contentView: contentView), on: parentView)
+}
+
+public func showToast(text: String, on parentView: UIView? = nil) {
+    showFloat(contentView: ToastContainer(), on: parentView)
+}
+
+public func hide() {
+    Manager.shared.floatView.hide()
+}
+
+private func showFloat(contentView: UIView & AnimationAware, on parentView: UIView? = nil) {
+    let floatView = FloatView(contentView: contentView)
     floatView.show(on: parentView!)
     Manager.shared.floatView = floatView
 }
 
-public func hideHUD() {
-    Manager.shared.floatView.hide()
-}
 
