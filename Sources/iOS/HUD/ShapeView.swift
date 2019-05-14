@@ -44,7 +44,6 @@ public class ShapeView: UIView, AnimationAware {
 extension ShapeView {
     func apply(type: ShapeType) {
         let path: String
-        var shiftY: CGFloat = 1.0
         switch type {
         case .heart:
             path = """
@@ -55,7 +54,6 @@ extension ShapeView {
             """
         case .star:
             path = "M8 .2l4.9 15.2L0 6h16L3.1 15.4z"
-            shiftY = 10
         case .custom(let string):
             path = string
         }
@@ -114,7 +112,6 @@ extension UIBezierPath {
         _ = applyCentered(transform: scale)
         return self
     }
-
 
     func applyCentered(transform: @autoclosure () -> CGAffineTransform ) -> Self{
         let bound  = self.cgPath.boundingBox
