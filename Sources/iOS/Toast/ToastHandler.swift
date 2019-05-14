@@ -18,8 +18,8 @@ public class ToastHandler: FloatViewDelegate {
     }
 
     public func animateShow(floatView: FloatView) {
-        let animator = UIViewPropertyAnimator(duration: 0.25, curve: .easeIn)
-        floatView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        let animator = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut)
+        floatView.transform = CGAffineTransform(translationX: 0, y: 200)
 
         animator.addAnimations {
             floatView.transform = CGAffineTransform.identity
@@ -33,10 +33,10 @@ public class ToastHandler: FloatViewDelegate {
     }
 
     public func animateHide(floatView: FloatView) {
-        let animator = UIViewPropertyAnimator(duration: 0.24, curve: .easeIn)
+        let animator = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut)
 
         animator.addAnimations {
-            floatView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+            floatView.transform = CGAffineTransform(translationX: 0, y: 200)
         }
 
         animator.addCompletion { _ in
