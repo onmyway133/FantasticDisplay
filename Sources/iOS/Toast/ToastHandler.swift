@@ -11,6 +11,8 @@ public class ToastHandler: FloatViewDelegate {
     public func constrain(floatView: FloatView, parentView: UIView) {
         NSLayoutConstraint.activate([
             floatView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor, constant: -30),
+            floatView.leftAnchor.constraint(greaterThanOrEqualTo: parentView.leftAnchor, constant: 30),
+            floatView.rightAnchor.constraint(lessThanOrEqualTo: parentView.rightAnchor, constant: -30),
             floatView.centerXAnchor.constraint(equalTo: parentView.centerXAnchor)
         ])
     }
