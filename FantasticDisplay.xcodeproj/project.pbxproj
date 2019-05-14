@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D22D25032289627B000F8747 /* AnimationAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D25022289627B000F8747 /* AnimationAware.swift */; };
 		D284B0F61F79024300D94AF3 /* macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284B0F51F79024300D94AF3 /* macOS.swift */; };
 		D284B1051F79038B00D94AF3 /* FantasticDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D284B0FC1F79038B00D94AF3 /* FantasticDisplay.framework */; };
 		D284B1231F79041C00D94AF3 /* tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284B1221F79041C00D94AF3 /* tvOS.swift */; };
@@ -23,13 +22,22 @@
 		D284B1481F7908BB00D94AF3 /* macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284B12E1F7906DA00D94AF3 /* macOSTests.swift */; };
 		D284B1491F790CA200D94AF3 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C629861C3A89A8007F7B7C /* Shared.swift */; };
 		D284B14A1F790CA200D94AF3 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C629861C3A89A8007F7B7C /* Shared.swift */; };
-		D29865D6228592A900E2C066 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29865D5228592A900E2C066 /* ProgressView.swift */; };
-		D29865DA228592C800E2C066 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29865D9228592C800E2C066 /* SuccessView.swift */; };
-		D29865DC228592CF00E2C066 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29865DB228592CF00E2C066 /* ErrorView.swift */; };
-		D2CE63A822846F6200024AD0 /* HUDContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE63A722846F6200024AD0 /* HUDContainer.swift */; };
-		D2CE63AA22846F6A00024AD0 /* ToastContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE63A922846F6A00024AD0 /* ToastContainer.swift */; };
-		D2CE63B022846F9E00024AD0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE63AF22846F9E00024AD0 /* UIView+Extensions.swift */; };
-		D2CE63B222846FCB00024AD0 /* FloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE63B122846FCA00024AD0 /* FloatView.swift */; };
+		D2D8FE83228B62FE0084782E /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE71228B62FE0084782E /* ShapeView.swift */; };
+		D2D8FE84228B62FE0084782E /* HUDContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE72228B62FE0084782E /* HUDContainer.swift */; };
+		D2D8FE85228B62FE0084782E /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE73228B62FE0084782E /* ProgressView.swift */; };
+		D2D8FE86228B62FE0084782E /* HUDHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE74228B62FE0084782E /* HUDHandler.swift */; };
+		D2D8FE87228B62FE0084782E /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE75228B62FE0084782E /* SuccessView.swift */; };
+		D2D8FE88228B62FE0084782E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE76228B62FE0084782E /* ErrorView.swift */; };
+		D2D8FE89228B62FE0084782E /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE78228B62FE0084782E /* Manager.swift */; };
+		D2D8FE8A228B62FE0084782E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE79228B62FE0084782E /* UIView+Extensions.swift */; };
+		D2D8FE8B228B62FE0084782E /* SVGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE7A228B62FE0084782E /* SVGPath.swift */; };
+		D2D8FE8C228B62FE0084782E /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE7B228B62FE0084782E /* Window.swift */; };
+		D2D8FE8D228B62FE0084782E /* FantasticDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE7C228B62FE0084782E /* FantasticDisplay.swift */; };
+		D2D8FE8E228B62FE0084782E /* AnimationAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE7D228B62FE0084782E /* AnimationAware.swift */; };
+		D2D8FE8F228B62FE0084782E /* FloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE7E228B62FE0084782E /* FloatView.swift */; };
+		D2D8FE90228B62FE0084782E /* ToastHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE80228B62FE0084782E /* ToastHandler.swift */; };
+		D2D8FE91228B62FE0084782E /* ToastContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE81228B62FE0084782E /* ToastContainer.swift */; };
+		D2D8FE92228B62FE0084782E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8FE82228B62FE0084782E /* MessageView.swift */; };
 		D5B2E8AA1C3A780C00C0327D /* FantasticDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2E89F1C3A780C00C0327D /* FantasticDisplay.framework */; };
 		D5C6294A1C3A7FAA007F7B7C /* FantasticDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C629401C3A7FAA007F7B7C /* FantasticDisplay.framework */; };
 		D5C629871C3A89A8007F7B7C /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C629861C3A89A8007F7B7C /* Shared.swift */; };
@@ -61,7 +69,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D22D25022289627B000F8747 /* AnimationAware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationAware.swift; sourceTree = "<group>"; };
 		D284B0F51F79024300D94AF3 /* macOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = macOS.swift; sourceTree = "<group>"; };
 		D284B0FC1F79038B00D94AF3 /* FantasticDisplay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FantasticDisplay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D284B1041F79038B00D94AF3 /* FantasticDisplay-tvOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FantasticDisplay-tvOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,13 +86,22 @@
 		D284B1411F79081F00D94AF3 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		D284B1421F79081F00D94AF3 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		D284B1431F79081F00D94AF3 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
-		D29865D5228592A900E2C066 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		D29865D9228592C800E2C066 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
-		D29865DB228592CF00E2C066 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		D2CE63A722846F6200024AD0 /* HUDContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDContainer.swift; sourceTree = "<group>"; };
-		D2CE63A922846F6A00024AD0 /* ToastContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastContainer.swift; sourceTree = "<group>"; };
-		D2CE63AF22846F9E00024AD0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		D2CE63B122846FCA00024AD0 /* FloatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatView.swift; sourceTree = "<group>"; };
+		D2D8FE71228B62FE0084782E /* ShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
+		D2D8FE72228B62FE0084782E /* HUDContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDContainer.swift; sourceTree = "<group>"; };
+		D2D8FE73228B62FE0084782E /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		D2D8FE74228B62FE0084782E /* HUDHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDHandler.swift; sourceTree = "<group>"; };
+		D2D8FE75228B62FE0084782E /* SuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		D2D8FE76228B62FE0084782E /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		D2D8FE78228B62FE0084782E /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		D2D8FE79228B62FE0084782E /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		D2D8FE7A228B62FE0084782E /* SVGPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGPath.swift; sourceTree = "<group>"; };
+		D2D8FE7B228B62FE0084782E /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		D2D8FE7C228B62FE0084782E /* FantasticDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FantasticDisplay.swift; sourceTree = "<group>"; };
+		D2D8FE7D228B62FE0084782E /* AnimationAware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationAware.swift; sourceTree = "<group>"; };
+		D2D8FE7E228B62FE0084782E /* FloatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatView.swift; sourceTree = "<group>"; };
+		D2D8FE80228B62FE0084782E /* ToastHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastHandler.swift; sourceTree = "<group>"; };
+		D2D8FE81228B62FE0084782E /* ToastContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastContainer.swift; sourceTree = "<group>"; };
+		D2D8FE82228B62FE0084782E /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		D500FD111C3AABED00782D78 /* Playground-iOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Playground-iOS.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D500FD121C3AAC8E00782D78 /* Playground-macOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Playground-macOS.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5B2E89F1C3A780C00C0327D /* FantasticDisplay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FantasticDisplay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,33 +234,41 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
-		D2CE63A022846F2200024AD0 /* HUD */ = {
+		D2D8FE70228B62FE0084782E /* HUD */ = {
 			isa = PBXGroup;
 			children = (
-				D2CE63A722846F6200024AD0 /* HUDContainer.swift */,
-				D29865D5228592A900E2C066 /* ProgressView.swift */,
-				D29865D9228592C800E2C066 /* SuccessView.swift */,
-				D29865DB228592CF00E2C066 /* ErrorView.swift */,
+				D2D8FE71228B62FE0084782E /* ShapeView.swift */,
+				D2D8FE72228B62FE0084782E /* HUDContainer.swift */,
+				D2D8FE73228B62FE0084782E /* ProgressView.swift */,
+				D2D8FE74228B62FE0084782E /* HUDHandler.swift */,
+				D2D8FE75228B62FE0084782E /* SuccessView.swift */,
+				D2D8FE76228B62FE0084782E /* ErrorView.swift */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
 		};
-		D2CE63A122846F2700024AD0 /* Toast */ = {
+		D2D8FE77228B62FE0084782E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				D2CE63A922846F6A00024AD0 /* ToastContainer.swift */,
-			);
-			path = Toast;
-			sourceTree = "<group>";
-		};
-		D2CE63A622846F4F00024AD0 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				D22D25022289627B000F8747 /* AnimationAware.swift */,
-				D2CE63B122846FCA00024AD0 /* FloatView.swift */,
-				D2CE63AF22846F9E00024AD0 /* UIView+Extensions.swift */,
+				D2D8FE78228B62FE0084782E /* Manager.swift */,
+				D2D8FE79228B62FE0084782E /* UIView+Extensions.swift */,
+				D2D8FE7A228B62FE0084782E /* SVGPath.swift */,
+				D2D8FE7B228B62FE0084782E /* Window.swift */,
+				D2D8FE7C228B62FE0084782E /* FantasticDisplay.swift */,
+				D2D8FE7D228B62FE0084782E /* AnimationAware.swift */,
+				D2D8FE7E228B62FE0084782E /* FloatView.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		D2D8FE7F228B62FE0084782E /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				D2D8FE80228B62FE0084782E /* ToastHandler.swift */,
+				D2D8FE81228B62FE0084782E /* ToastContainer.swift */,
+				D2D8FE82228B62FE0084782E /* MessageView.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		D5B2E8951C3A780C00C0327D = {
@@ -288,9 +312,9 @@
 		D5C6296A1C3A809D007F7B7C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D2CE63A622846F4F00024AD0 /* Core */,
-				D2CE63A122846F2700024AD0 /* Toast */,
-				D2CE63A022846F2200024AD0 /* HUD */,
+				D2D8FE77228B62FE0084782E /* Core */,
+				D2D8FE70228B62FE0084782E /* HUD */,
+				D2D8FE7F228B62FE0084782E /* Toast */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -629,15 +653,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2CE63B022846F9E00024AD0 /* UIView+Extensions.swift in Sources */,
-				D2CE63B222846FCB00024AD0 /* FloatView.swift in Sources */,
-				D2CE63A822846F6200024AD0 /* HUDContainer.swift in Sources */,
-				D29865DA228592C800E2C066 /* SuccessView.swift in Sources */,
-				D29865DC228592CF00E2C066 /* ErrorView.swift in Sources */,
+				D2D8FE84228B62FE0084782E /* HUDContainer.swift in Sources */,
+				D2D8FE8F228B62FE0084782E /* FloatView.swift in Sources */,
+				D2D8FE8B228B62FE0084782E /* SVGPath.swift in Sources */,
+				D2D8FE85228B62FE0084782E /* ProgressView.swift in Sources */,
+				D2D8FE90228B62FE0084782E /* ToastHandler.swift in Sources */,
+				D2D8FE92228B62FE0084782E /* MessageView.swift in Sources */,
+				D2D8FE83228B62FE0084782E /* ShapeView.swift in Sources */,
+				D2D8FE8D228B62FE0084782E /* FantasticDisplay.swift in Sources */,
+				D2D8FE8A228B62FE0084782E /* UIView+Extensions.swift in Sources */,
+				D2D8FE89228B62FE0084782E /* Manager.swift in Sources */,
 				D5C629871C3A89A8007F7B7C /* Shared.swift in Sources */,
-				D22D25032289627B000F8747 /* AnimationAware.swift in Sources */,
-				D29865D6228592A900E2C066 /* ProgressView.swift in Sources */,
-				D2CE63AA22846F6A00024AD0 /* ToastContainer.swift in Sources */,
+				D2D8FE88228B62FE0084782E /* ErrorView.swift in Sources */,
+				D2D8FE8E228B62FE0084782E /* AnimationAware.swift in Sources */,
+				D2D8FE87228B62FE0084782E /* SuccessView.swift in Sources */,
+				D2D8FE91228B62FE0084782E /* ToastContainer.swift in Sources */,
+				D2D8FE86228B62FE0084782E /* HUDHandler.swift in Sources */,
+				D2D8FE8C228B62FE0084782E /* Window.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

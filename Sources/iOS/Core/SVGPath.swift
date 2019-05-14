@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Tim Wood. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreGraphics
 
 // MARK: UIBezierPath

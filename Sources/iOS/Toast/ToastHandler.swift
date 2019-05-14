@@ -5,7 +5,7 @@
 //  Created by khoa on 14/05/2019.
 //
 
-import Foundation
+import UIKit
 
 public class ToastHandler: FloatViewDelegate {
     public func constrain(floatView: FloatView, parentView: UIView) {
