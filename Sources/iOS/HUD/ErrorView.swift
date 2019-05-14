@@ -16,7 +16,7 @@ public class ErrorView: UIView, AnimationAware {
     public let animation2 = CASpringAnimation(keyPath: #keyPath(CALayer.transform))
 
     public var lineColor: UIColor = UIColor.darkGray
-    public var duration: TimeInterval = 1.0
+    public var duration: TimeInterval = 0.75
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,11 +42,12 @@ public class ErrorView: UIView, AnimationAware {
 
         [animation1, animation2].forEach {
             $0.fromValue = 0
-            $0.damping = 0.9
-            $0.initialVelocity = 0.2
+            $0.damping = 0.33
+            $0.initialVelocity = 0.01
+            $0.mass = 0.2
             $0.duration = duration
             $0.valueFunction = CAValueFunction(name: CAValueFunctionName.rotateZ)
-            $0.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            $0.timingFunction = CAMediaTimingFunction(name: .easeIn)
         }
 
         animation1.toValue = CGFloat.pi / 4

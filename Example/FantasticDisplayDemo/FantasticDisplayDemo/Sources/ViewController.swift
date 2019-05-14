@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     }
 
     @objc func showButtonTouched() {
-        FantasticDisplay.showHUD(type: .progress, on: view)
+        FantasticDisplay.showHUD(type: .error, on: view)
     }
 
     @objc func hideButtonTouched() {
